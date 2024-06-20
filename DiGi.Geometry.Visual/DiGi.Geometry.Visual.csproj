@@ -10,7 +10,10 @@
 
   <ItemGroup>
     <Folder Include="Spatial\" />
-    <Folder Include="Planar\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DiGi.Geometry\DiGi.Geometry\DiGi.Geometry.csproj" />
   </ItemGroup>
 
   <ItemGroup>
