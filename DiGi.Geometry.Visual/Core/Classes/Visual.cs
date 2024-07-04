@@ -1,10 +1,10 @@
 ﻿using DiGi.Geometry.Visual.Core.Interfaces;
 using DiGi.Core.Classes;
 using System.Text.Json.Nodes;
-using DiGi.Geometry.Core.Interfaces;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 using DiGi.Core;
+using DiGi.Geometry.Core.Interfaces;
 
 
 namespace DiGi.Geometry.Visual.Core.Classes

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DiGi.Geometry\DiGi.Geometry\DiGi.Geometry.csproj" />
+    <PackageReference Include="System.Text.Json" Version="8.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +22,9 @@
     </Reference>
     <Reference Include="DiGi.Geometry">
       <HintPath>..\..\DiGi.Geometry\bin\DiGi.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="DiGi.Geometry.Object">
+      <HintPath>..\..\DiGi.Geometry\bin\DiGi.Geometry.Object.dll</HintPath>
     </Reference>
   </ItemGroup>
 
