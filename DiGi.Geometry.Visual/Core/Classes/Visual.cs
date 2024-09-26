@@ -33,10 +33,10 @@ namespace DiGi.Geometry.Visual.Core.Classes
     public abstract class Visual<T, X> : Visual, IVisual<T, X> where T : IGeometry where X : IAppearance
     {
         [JsonInclude, JsonPropertyName("Geometry"), Description("Geometry")]
-        public T Geometry { get; set; }
+        public virtual T Geometry { get; set; }
 
         [JsonInclude, JsonPropertyName("Appearance"), Description("Appearance")]
-        public X Appearance { get; set; }
+        public virtual X Appearance { get; set; }
 
         public Visual(JsonObject jsonObject)
         : base(jsonObject)
