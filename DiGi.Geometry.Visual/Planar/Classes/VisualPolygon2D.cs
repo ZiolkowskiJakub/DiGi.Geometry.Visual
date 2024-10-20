@@ -1,5 +1,4 @@
 ﻿using DiGi.Geometry.Planar.Classes;
-using DiGi.Geometry.Planar.Interfaces;
 using DiGi.Geometry.Visual.Core.Classes;
 using DiGi.Geometry.Visual.Core.Interfaces;
 using DiGi.Geometry.Visual.Planar.Interfaces;
