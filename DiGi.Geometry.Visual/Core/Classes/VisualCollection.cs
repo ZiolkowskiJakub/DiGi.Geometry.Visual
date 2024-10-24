@@ -11,7 +11,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
     public abstract class VisualCollection<T> : Visual, IVisualCollection<T> where T : IVisual
     {
         [JsonIgnore]
-        private Dictionary<UniqueReference, T> dictionary = new Dictionary<UniqueReference, T>();
+        private Dictionary<GuidReference, T> dictionary = new Dictionary<GuidReference, T>();
 
         public VisualCollection(JsonObject jsonObject)
             : base(jsonObject)
@@ -58,18 +58,18 @@ namespace DiGi.Geometry.Visual.Core.Classes
                 return false;
             }
 
-            dictionary[new UniqueReference(value)] = value;
+            dictionary[new GuidReference(value)] = value;
             return true;
         }
 
-        public bool Remove(UniqueReference uniqueReference)
+        public bool Remove(GuidReference guidReference)
         {
-            if(uniqueReference == null)
+            if(guidReference == null)
             {
                 return false;
             }
 
-            return dictionary.Remove(uniqueReference);
+            return dictionary.Remove(guidReference);
         }
 
         public bool Remove(T value)
@@ -79,7 +79,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
                 return false;
             }
 
-            return Remove(new UniqueReference(value));
+            return Remove(new GuidReference(value));
         }
 
         public void Clear()
@@ -94,30 +94,30 @@ namespace DiGi.Geometry.Visual.Core.Classes
                 return false;
             }
 
-            return Contains(new UniqueReference(value));
+            return Contains(new GuidReference(value));
         }
 
-        public bool Contains(UniqueReference uniqueReference)
+        public bool Contains(GuidReference guidReference)
         {
-            if(uniqueReference == null)
+            if(guidReference == null)
             {
                 return false;
             }
 
-            return dictionary.ContainsKey(uniqueReference);
+            return dictionary.ContainsKey(guidReference);
         }
 
         [JsonIgnore]
-        public T this[UniqueReference uniqueReference]
+        public T this[GuidReference guidReference]
         {
             get
             {
-                if(uniqueReference == null)
+                if(guidReference == null)
                 {
                     return default;
                 }
 
-                return dictionary[uniqueReference];
+                return dictionary[guidReference];
             }
         }
 
