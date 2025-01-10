@@ -9,7 +9,7 @@ using DiGi.Geometry.Core.Interfaces;
 
 namespace DiGi.Geometry.Visual.Core.Classes
 {
-    public abstract class Visual : UniqueObject, IVisual
+    public abstract class Visual : GuidObject, IVisual
     {
         public Visual(JsonObject jsonObject)
             :base(jsonObject)

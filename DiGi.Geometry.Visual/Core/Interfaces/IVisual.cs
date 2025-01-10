@@ -11,7 +11,7 @@ namespace DiGi.Geometry.Visual.Core.Interfaces
         X Appearance { get; set; }
     }
 
-    public interface IVisual: IUniqueObject, IGeometryObject
+    public interface IVisual: IGuidObject, IGeometryObject
     {
 
     }

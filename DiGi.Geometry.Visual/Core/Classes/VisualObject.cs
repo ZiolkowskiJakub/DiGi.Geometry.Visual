@@ -5,7 +5,7 @@ using System.Text.Json.Nodes;
 
 namespace DiGi.Geometry.Visual.Core.Classes
 {
-    public class VisualObject<T> : UniqueObject where T: IVisual
+    public class VisualObject<T> : GuidObject where T: IVisual
     {
         public T Visual { get; set; }
 
