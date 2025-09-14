@@ -9,19 +9,19 @@ namespace DiGi.Geometry.Visual.Planar.Classes
 {
     public class VisualPoint2D : Visual<Point2D, IPointAppearance>, IVisualPoint2D
     {
-        public VisualPoint2D(Point2D geometry, IPointAppearance appearance)
+        public VisualPoint2D(Point2D? geometry, IPointAppearance? appearance)
             :base(geometry, appearance)
         {
 
         }
 
-        public VisualPoint2D(JsonObject jsonObject)
+        public VisualPoint2D(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public VisualPoint2D(VisualPoint2D visualPoint2D)
+        public VisualPoint2D(VisualPoint2D? visualPoint2D)
             :base(visualPoint2D)
         {
 

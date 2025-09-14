@@ -9,19 +9,19 @@ namespace DiGi.Geometry.Visual.Planar.Classes
 {
     public class VisualPolygon2D : Visual<Polygon2D, ICurveAppearance>, IVisualPolygon2D
     {
-        public VisualPolygon2D(Polygon2D geometry, ICurveAppearance appearance)
+        public VisualPolygon2D(Polygon2D? geometry, ICurveAppearance? appearance)
             :base(geometry, appearance)
         {
 
         }
 
-        public VisualPolygon2D(JsonObject jsonObject)
+        public VisualPolygon2D(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public VisualPolygon2D(VisualPolygon2D visualPolygon2D)
+        public VisualPolygon2D(VisualPolygon2D? visualPolygon2D)
             :base(visualPolygon2D)
         {
 

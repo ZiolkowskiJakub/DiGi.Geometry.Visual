@@ -9,19 +9,19 @@ namespace DiGi.Geometry.Visual.Planar.Classes
 {
     public abstract class VisualCurve2D<T> : Visual<T, ICurveAppearance>, IVisualCurve2D<T> where T : ICurve2D
     {
-        public VisualCurve2D(T geometry, ICurveAppearance appearance)
+        public VisualCurve2D(T? geometry, ICurveAppearance? appearance)
             :base(geometry, appearance)
         {
 
         }
 
-        public VisualCurve2D(JsonObject jsonObject)
+        public VisualCurve2D(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public VisualCurve2D(VisualCurve2D visualCurve2D)
+        public VisualCurve2D(VisualCurve2D<T>? visualCurve2D)
             :base(visualCurve2D)
         {
 
@@ -30,19 +30,19 @@ namespace DiGi.Geometry.Visual.Planar.Classes
 
     public class VisualCurve2D : VisualCurve2D<ICurve2D>, IVisualCurve2D
     {
-        public VisualCurve2D(ICurve2D geometry, ICurveAppearance appearance)
+        public VisualCurve2D(ICurve2D? geometry, ICurveAppearance? appearance)
             : base(geometry, appearance)
         {
 
         }
 
-        public VisualCurve2D(JsonObject jsonObject)
+        public VisualCurve2D(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
-        public VisualCurve2D(VisualCurve2D visualCurve2D)
+        public VisualCurve2D(VisualCurve2D? visualCurve2D)
             : base(visualCurve2D)
         {
 

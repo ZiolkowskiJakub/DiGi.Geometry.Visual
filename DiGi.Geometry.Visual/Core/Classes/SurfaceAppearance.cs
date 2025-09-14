@@ -8,15 +8,15 @@ namespace DiGi.Geometry.Visual.Core.Classes
     public class SurfaceAppearance : Appearance
     {
         [JsonInclude, JsonPropertyName("CurveAppearance"), Description("CurveAppearance")]
-        public CurveAppearance CurveAppearance { get; set; }
+        public CurveAppearance? CurveAppearance { get; set; }
 
-        public SurfaceAppearance(SurfaceAppearance surfaceAppearance)
+        public SurfaceAppearance(SurfaceAppearance? surfaceAppearance)
             :base(surfaceAppearance)
         {
 
         }
 
-        public SurfaceAppearance(JsonObject jsonObject)
+        public SurfaceAppearance(JsonObject? jsonObject)
             :base(jsonObject)
         {
 

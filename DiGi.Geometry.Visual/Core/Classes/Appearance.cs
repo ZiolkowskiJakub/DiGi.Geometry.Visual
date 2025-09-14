@@ -8,13 +8,13 @@ namespace DiGi.Geometry.Visual.Core.Classes
 {
     public abstract class Appearance : SerializableObject, IAppearance
     {
-        public Appearance(Color color)
+        public Appearance(Color? color)
             :base()
         {
             Color = color;
         }
 
-        public Appearance(Appearance appearance)
+        public Appearance(Appearance? appearance)
             :base()
         {
             if (appearance != null)
@@ -25,14 +25,14 @@ namespace DiGi.Geometry.Visual.Core.Classes
             }
         }
 
-        public Appearance(JsonObject jsonObject)
+        public Appearance(JsonObject? jsonObject)
             : base(jsonObject)
         {
 
         }
 
         [JsonInclude, JsonPropertyName("Color"), Description("Color")]
-        public Color Color { get; set; }
+        public Color? Color { get; set; }
 
         [JsonInclude, JsonPropertyName("Opacity"), Description("Opacity")]
         public double Opacity { get; set; } = 1;
