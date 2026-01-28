@@ -9,18 +9,17 @@ namespace DiGi.Geometry.Visual.Core.Classes
     public class PointAppearance : Appearance, IPointAppearance
     {
         public PointAppearance(PointAppearance pointAppearance)
-            :base(pointAppearance)
+            : base(pointAppearance)
         {
-            if(pointAppearance != null)
+            if (pointAppearance != null)
             {
                 Thickness = pointAppearance.Thickness;
             }
         }
 
         public PointAppearance(JsonObject jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-
         }
 
         public PointAppearance(Color color, double thickness)
@@ -29,9 +28,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
             Thickness = thickness;
         }
 
-
         [JsonInclude, JsonPropertyName("Thickness"), Description("Thickness")]
         public double Thickness { get; set; }
-
     }
 }

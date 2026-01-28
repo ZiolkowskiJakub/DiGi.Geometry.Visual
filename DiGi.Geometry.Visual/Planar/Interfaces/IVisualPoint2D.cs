@@ -6,7 +6,5 @@ namespace DiGi.Geometry.Visual.Planar.Interfaces
 {
     public interface IVisualPoint2D : IVisual2D<Point2D, IPointAppearance>, IGeometry2DObject<Point2D>
     {
-
-
     }
 }

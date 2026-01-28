@@ -11,15 +11,13 @@ namespace DiGi.Geometry.Visual.Core.Classes
         public CurveAppearance? CurveAppearance { get; set; }
 
         public SurfaceAppearance(SurfaceAppearance? surfaceAppearance)
-            :base(surfaceAppearance)
+            : base(surfaceAppearance)
         {
-
         }
 
         public SurfaceAppearance(JsonObject? jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-
         }
 
         public SurfaceAppearance(Color surfaceColor, Color curveColor, double curveThickness)

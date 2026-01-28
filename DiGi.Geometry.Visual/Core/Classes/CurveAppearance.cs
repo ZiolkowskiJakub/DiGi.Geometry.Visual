@@ -6,21 +6,18 @@ namespace DiGi.Geometry.Visual.Core.Classes
     public class CurveAppearance : PointAppearance
     {
         public CurveAppearance(CurveAppearance curveAppearance)
-            :base(curveAppearance)
+            : base(curveAppearance)
         {
-
         }
 
         public CurveAppearance(JsonObject jsonObject)
-            :base(jsonObject)
+            : base(jsonObject)
         {
-
         }
 
         public CurveAppearance(Color color, double thickness)
             : base(color, thickness)
         {
-
         }
     }
 }

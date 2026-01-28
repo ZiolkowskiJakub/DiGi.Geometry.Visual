@@ -1,21 +1,21 @@
-﻿using DiGi.Geometry.Visual.Core.Interfaces;
-using DiGi.Core.Classes;
+﻿using DiGi.Core.Classes;
+using DiGi.Geometry.Visual.Core.Interfaces;
 using System.ComponentModel;
-using System.Text.Json.Serialization;
 using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 
 namespace DiGi.Geometry.Visual.Core.Classes
 {
     public abstract class Appearance : SerializableObject, IAppearance
     {
         public Appearance(Color? color)
-            :base()
+            : base()
         {
             Color = color;
         }
 
         public Appearance(Appearance? appearance)
-            :base()
+            : base()
         {
             if (appearance != null)
             {
@@ -28,7 +28,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
         public Appearance(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         [JsonInclude, JsonPropertyName("Color"), Description("Color")]

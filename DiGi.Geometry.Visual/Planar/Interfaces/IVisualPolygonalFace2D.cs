@@ -6,7 +6,5 @@ namespace DiGi.Geometry.Visual.Planar.Interfaces
 {
     public interface IVisualPolygonalFace2D : IVisual2D<PolygonalFace2D, ISurfaceAppearance>, IGeometry2DObject<PolygonalFace2D>
     {
-
-
     }
 }

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
-
 namespace DiGi.Geometry.Visual.Core.Classes
 {
     public abstract class VisualCollection<T> : Visual, IVisualCollection<T> where T : IVisual
@@ -17,13 +16,11 @@ namespace DiGi.Geometry.Visual.Core.Classes
         public VisualCollection(JsonObject? jsonObject)
             : base(jsonObject)
         {
-
         }
 
         public VisualCollection(VisualCollection<T>? visualCollection)
             : base(visualCollection)
         {
-
         }
 
         public VisualCollection(IEnumerable<T>? visuals)
@@ -35,7 +32,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
         public VisualCollection()
             : base()
         {
-
         }
 
         [JsonInclude, JsonPropertyName("Values")]
@@ -65,7 +61,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
 
         public bool Remove(GuidReference? guidReference)
         {
-            if(guidReference is null)
+            if (guidReference is null)
             {
                 return false;
             }
@@ -75,7 +71,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
 
         public bool Remove(T? value)
         {
-            if(value == null)
+            if (value == null)
             {
                 return false;
             }
@@ -90,7 +86,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
 
         public bool Contains(T? value)
         {
-            if(value == null)
+            if (value == null)
             {
                 return false;
             }
@@ -100,7 +96,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
 
         public bool Contains(GuidReference? guidReference)
         {
-            if(guidReference is null)
+            if (guidReference is null)
             {
                 return false;
             }
@@ -113,7 +109,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
         {
             get
             {
-                if(guidReference is null)
+                if (guidReference is null)
                 {
                     return default;
                 }
@@ -140,16 +136,15 @@ namespace DiGi.Geometry.Visual.Core.Classes
         public void SetValues(IEnumerable<T>? values)
         {
             dictionary.Clear();
-            if(values == null)
+            if (values == null)
             {
                 return;
             }
 
-            foreach(T value in values)
+            foreach (T value in values)
             {
                 Add(value);
             }
-
         }
     }
 }

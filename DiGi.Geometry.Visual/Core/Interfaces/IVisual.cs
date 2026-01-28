@@ -4,13 +4,12 @@ using DiGi.Geometry.Object.Core.Interfaces;
 
 namespace DiGi.Geometry.Visual.Core.Interfaces
 {
-    public interface IVisual<T, X> : IVisual, IGeometryObject<T> where T: IGeometry where X : IAppearance
+    public interface IVisual<T, X> : IVisual, IGeometryObject<T> where T : IGeometry where X : IAppearance
     {
         X? Appearance { get; set; }
     }
 
-    public interface IVisual: IGuidObject, IGeometryObject
+    public interface IVisual : IGuidObject, IGeometryObject
     {
-
     }
 }

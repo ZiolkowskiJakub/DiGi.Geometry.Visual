@@ -6,7 +6,5 @@ namespace DiGi.Geometry.Visual.Planar.Interfaces
 {
     public interface IVisualPolygon2D : IVisual2D<Polygon2D, ICurveAppearance>, IGeometry2DObject<Polygon2D>
     {
-
-
     }
 }
