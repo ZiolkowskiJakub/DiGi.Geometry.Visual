@@ -48,6 +48,20 @@ namespace DiGi.Geometry.Visual.Core.Classes
             }
         }
 
+        [JsonIgnore]
+        public T? this[GuidReference? guidReference]
+        {
+            get
+            {
+                if (guidReference is null)
+                {
+                    return default;
+                }
+
+                return dictionary[guidReference];
+            }
+        }
+
         public bool Add(T? value)
         {
             if (value == null)
@@ -57,26 +71,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
 
             dictionary[new GuidReference(value)] = value;
             return true;
-        }
-
-        public bool Remove(GuidReference? guidReference)
-        {
-            if (guidReference is null)
-            {
-                return false;
-            }
-
-            return dictionary.Remove(guidReference);
-        }
-
-        public bool Remove(T? value)
-        {
-            if (value == null)
-            {
-                return false;
-            }
-
-            return Remove(new GuidReference(value));
         }
 
         public void Clear()
@@ -104,20 +98,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return dictionary.ContainsKey(guidReference);
         }
 
-        [JsonIgnore]
-        public T? this[GuidReference? guidReference]
-        {
-            get
-            {
-                if (guidReference is null)
-                {
-                    return default;
-                }
-
-                return dictionary[guidReference];
-            }
-        }
-
         public IEnumerator<T> GetEnumerator()
         {
             return GetValues()?.GetEnumerator() ?? Enumerable.Empty<T>().GetEnumerator();
@@ -133,6 +113,25 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return dictionary == null ? null : new List<T>(dictionary.Values);
         }
 
+        public bool Remove(GuidReference? guidReference)
+        {
+            if (guidReference is null)
+            {
+                return false;
+            }
+
+            return dictionary.Remove(guidReference);
+        }
+
+        public bool Remove(T? value)
+        {
+            if (value == null)
+            {
+                return false;
+            }
+
+            return Remove(new GuidReference(value));
+        }
         public void SetValues(IEnumerable<T>? values)
         {
             dictionary.Clear();

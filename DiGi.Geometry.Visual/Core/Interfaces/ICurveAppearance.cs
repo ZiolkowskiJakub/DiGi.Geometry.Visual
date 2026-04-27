@@ -2,5 +2,6 @@
 {
     public interface ICurveAppearance : IPointAppearance
     {
+        public IPointAppearance? PointAppearance { get; set; }
     }
 }

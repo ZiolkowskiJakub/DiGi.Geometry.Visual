@@ -1,18 +1,21 @@
 ﻿using DiGi.Core.Classes;
+using DiGi.Geometry.Visual.Core.Interfaces;
 using System.ComponentModel;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
 namespace DiGi.Geometry.Visual.Core.Classes
 {
-    public class SurfaceAppearance : Appearance
+    public class SurfaceAppearance : Appearance, ISurfaceAppearance
     {
-        [JsonInclude, JsonPropertyName("CurveAppearance"), Description("CurveAppearance")]
-        public CurveAppearance? CurveAppearance { get; set; }
-
         public SurfaceAppearance(SurfaceAppearance? surfaceAppearance)
             : base(surfaceAppearance)
         {
+            if (surfaceAppearance is not null)
+            {
+                CurveAppearance = DiGi.Core.Query.Clone(surfaceAppearance.CurveAppearance);
+            }
+
         }
 
         public SurfaceAppearance(JsonObject? jsonObject)
@@ -25,5 +28,8 @@ namespace DiGi.Geometry.Visual.Core.Classes
         {
             CurveAppearance = new CurveAppearance(curveColor, curveThickness);
         }
+
+        [JsonInclude, JsonPropertyName("CurveAppearance"), Description("Curve Appearance")]
+        public ICurveAppearance? CurveAppearance { get; set; }
     }
 }
