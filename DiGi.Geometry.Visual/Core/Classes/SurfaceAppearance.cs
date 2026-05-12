@@ -15,7 +15,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
             {
                 CurveAppearance = DiGi.Core.Query.Clone(surfaceAppearance.CurveAppearance);
             }
-
         }
 
         public SurfaceAppearance(JsonObject? jsonObject)

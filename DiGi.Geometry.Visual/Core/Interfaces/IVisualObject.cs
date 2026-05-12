@@ -4,7 +4,6 @@ namespace DiGi.Geometry.Visual.Core.Interfaces
 {
     public interface IVisualObject : IGuidObject
     {
-
     }
 
     public interface IVisualObject<TVisual> : IVisualObject where TVisual : IVisual

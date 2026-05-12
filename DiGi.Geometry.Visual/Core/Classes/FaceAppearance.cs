@@ -16,7 +16,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
                 ExternalEdgeAppearance = DiGi.Core.Query.Clone(faceAppearance.ExternalEdgeAppearance);
                 InternalEdgeAppearance = DiGi.Core.Query.Clone(faceAppearance.InternalEdgeAppearance);
             }
-
         }
 
         public FaceAppearance(SurfaceAppearance? surfaceAppearance)

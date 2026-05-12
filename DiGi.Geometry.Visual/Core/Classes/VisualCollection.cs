@@ -132,6 +132,7 @@ namespace DiGi.Geometry.Visual.Core.Classes
 
             return Remove(new GuidReference(value));
         }
+
         public void SetValues(IEnumerable<T>? values)
         {
             dictionary.Clear();

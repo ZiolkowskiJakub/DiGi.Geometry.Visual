@@ -17,21 +17,20 @@ namespace DiGi.Geometry.Visual.Core.Classes
         public MeshAppearance(MeshAppearance? meshAppearance)
             : base(meshAppearance)
         {
-            if(meshAppearance is not null)
+            if (meshAppearance is not null)
             {
                 BoundaryEdgeAppearance = DiGi.Core.Query.Clone(meshAppearance.BoundaryEdgeAppearance);
                 AuxiliaryEdgeAppearance = DiGi.Core.Query.Clone(meshAppearance.AuxiliaryEdgeAppearance);
             }
-
         }
 
         public MeshAppearance(SurfaceAppearance? surfaceAppearance)
             : base(surfaceAppearance)
         {
-            if(surfaceAppearance is not null)
+            if (surfaceAppearance is not null)
             {
                 BoundaryEdgeAppearance = DiGi.Core.Query.Clone(surfaceAppearance.CurveAppearance);
-            }            
+            }
         }
 
         public MeshAppearance(JsonObject? jsonObject)

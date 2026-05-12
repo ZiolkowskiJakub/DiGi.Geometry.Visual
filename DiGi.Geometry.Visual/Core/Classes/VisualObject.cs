@@ -34,7 +34,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
                 Object = visualObject.Object;
                 Visual = visualObject.Visual;
             }
-
         }
 
         public VisualObject()

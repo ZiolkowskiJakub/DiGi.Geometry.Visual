@@ -15,7 +15,6 @@ namespace DiGi.Geometry.Visual.Core.Classes
             {
                 PointAppearance = DiGi.Core.Query.Clone(curveAppearance.PointAppearance);
             }
-
         }
 
         public CurveAppearance(JsonObject jsonObject)
