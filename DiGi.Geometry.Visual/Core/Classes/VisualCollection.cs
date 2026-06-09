@@ -8,27 +8,46 @@ using System.Text.Json.Serialization;
 
 namespace DiGi.Geometry.Visual.Core.Classes
 {
+    /// <summary>
+    /// Represents an abstract base class for a collection of visual elements.
+    /// </summary>
+    /// <typeparam name="T">The type of visual elements contained in the collection, which must implement <see cref="IVisual"/>.</typeparam>
     public abstract class VisualCollection<T> : Visual, IVisualCollection<T> where T : IVisual
     {
         [JsonIgnore]
         private readonly Dictionary<GuidReference, T> dictionary = [];
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VisualCollection{T}"/> class from a JSON object.
+        /// </summary>
+        /// <param name="jsonObject">The JSON object containing the collection data.</param>
         public VisualCollection(JsonObject? jsonObject)
             : base(jsonObject)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VisualCollection{T}"/> class by copying another visual collection.
+        /// </summary>
+        /// <param name="visualCollection">The source visual collection to copy from.</param>
         public VisualCollection(VisualCollection<T>? visualCollection)
             : base(visualCollection)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VisualCollection{T}"/> class with a specified set of visuals.
+        /// </summary>
+        /// <param name="visuals">The initial collection of visual elements.</param>
         public VisualCollection(IEnumerable<T>? visuals)
             : base()
         {
             Values = visuals;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VisualCollection{T}"/> class.
+        /// </summary>
         public VisualCollection()
             : base()
         {
@@ -48,6 +67,11 @@ namespace DiGi.Geometry.Visual.Core.Classes
             }
         }
 
+        /// <summary>
+        /// Gets the visual element associated with the specified unique reference.
+        /// </summary>
+        /// <param name="guidReference">The unique reference of the visual element to retrieve.</param>
+        /// <returns>The visual element if found; otherwise, the default value for type <typeparamref name="T"/>.</returns>
         [JsonIgnore]
         public T? this[GuidReference? guidReference]
         {
@@ -62,6 +86,11 @@ namespace DiGi.Geometry.Visual.Core.Classes
             }
         }
 
+        /// <summary>
+        /// Adds a visual element to the collection.
+        /// </summary>
+        /// <param name="value">The visual element to add.</param>
+        /// <returns><c>true</c> if the element was successfully added; otherwise, <c>false</c>.</returns>
         public bool Add(T? value)
         {
             if (value == null)
@@ -73,11 +102,19 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return true;
         }
 
+        /// <summary>
+        /// Removes all visual elements from the collection.
+        /// </summary>
         public void Clear()
         {
             dictionary.Clear();
         }
 
+        /// <summary>
+        /// Determines whether the collection contains a specific visual element.
+        /// </summary>
+        /// <param name="value">The visual element to locate in the collection.</param>
+        /// <returns><c>true</c> if the element is found; otherwise, <c>false</c>.</returns>
         public bool Contains(T? value)
         {
             if (value == null)
@@ -88,6 +125,11 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return Contains(new GuidReference(value));
         }
 
+        /// <summary>
+        /// Determines whether the collection contains a visual element with the specified unique reference.
+        /// </summary>
+        /// <param name="guidReference">The unique reference to locate in the collection.</param>
+        /// <returns><c>true</c> if the reference is found; otherwise, <c>false</c>.</returns>
         public bool Contains(GuidReference? guidReference)
         {
             if (guidReference is null)
@@ -98,21 +140,38 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return dictionary.ContainsKey(guidReference);
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection of visual elements.
+        /// </summary>
+        /// <returns>An enumerator for the collection.</returns>
         public IEnumerator<T> GetEnumerator()
         {
             return GetValues()?.GetEnumerator() ?? Enumerable.Empty<T>().GetEnumerator();
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>An <see cref="IEnumerator"/> object that can be used to iterate through the collection.</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
+        /// <summary>
+        /// Retrieves all visual elements currently stored in the collection.
+        /// </summary>
+        /// <returns>An enumerable collection of visual elements, or <c>null</c> if the internal storage is unavailable.</returns>
         public IEnumerable<T>? GetValues()
         {
             return dictionary == null ? null : new List<T>(dictionary.Values);
         }
 
+        /// <summary>
+        /// Removes the visual element associated with the specified unique reference from the collection.
+        /// </summary>
+        /// <param name="guidReference">The unique reference of the element to remove.</param>
+        /// <returns><c>true</c> if the element was successfully removed; otherwise, <c>false</c>.</returns>
         public bool Remove(GuidReference? guidReference)
         {
             if (guidReference is null)
@@ -123,6 +182,11 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return dictionary.Remove(guidReference);
         }
 
+        /// <summary>
+        /// Removes the specified visual element from the collection.
+        /// </summary>
+        /// <param name="value">The visual element to remove.</param>
+        /// <returns><c>true</c> if the element was successfully removed; otherwise, <c>false</c>.</returns>
         public bool Remove(T? value)
         {
             if (value == null)
@@ -133,6 +197,10 @@ namespace DiGi.Geometry.Visual.Core.Classes
             return Remove(new GuidReference(value));
         }
 
+        /// <summary>
+        /// Replaces the current contents of the collection with a specified set of visual elements.
+        /// </summary>
+        /// <param name="values">The new set of visual elements to populate the collection.</param>
         public void SetValues(IEnumerable<T>? values)
         {
             dictionary.Clear();
