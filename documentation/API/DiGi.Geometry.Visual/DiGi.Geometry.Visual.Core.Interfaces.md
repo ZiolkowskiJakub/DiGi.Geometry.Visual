@@ -1,4 +1,4 @@
-#### [DiGi\.Geometry\.Visual](index.md 'index')
+#### [DiGi\.Geometry\.Visual](DiGi.Geometry.Visual.Overview.md 'DiGi\.Geometry\.Visual\.Overview')
 
 ## DiGi\.Geometry\.Visual\.Core\.Interfaces Namespace
 ### Interfaces
