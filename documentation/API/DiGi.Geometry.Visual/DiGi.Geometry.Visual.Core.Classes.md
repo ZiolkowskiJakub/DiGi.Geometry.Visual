@@ -1038,6 +1038,10 @@ Implements [GetEnumerator\(\)](https://learn.microsoft.com/en-us/dotnet/api/syst
 [System\.Collections\.Generic\.IEnumerator&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerator-1 'System\.Collections\.Generic\.IEnumerator\`1')[T](DiGi.Geometry.Visual.Core.Classes.md#DiGi.Geometry.Visual.Core.Classes.VisualCollection_T_.T 'DiGi\.Geometry\.Visual\.Core\.Classes\.VisualCollection\<T\>\.T')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerator-1 'System\.Collections\.Generic\.IEnumerator\`1')  
 An enumerator for the collection\.
 
+### Remarks
+The enumerator reflects the live contents of the collection; modifying the collection while
+enumerating invalidates the enumerator and throws a [System\.InvalidOperationException](https://learn.microsoft.com/en-us/dotnet/api/system.invalidoperationexception 'System\.InvalidOperationException')\.
+
 <a name='DiGi.Geometry.Visual.Core.Classes.VisualCollection_T_.GetValues()'></a>
 
 ## VisualCollection\<T\>\.GetValues\(\) Method
@@ -1045,12 +1049,16 @@ An enumerator for the collection\.
 Retrieves all visual elements currently stored in the collection\.
 
 ```csharp
-public System.Collections.Generic.IEnumerable<T>? GetValues();
+public System.Collections.Generic.IEnumerable<T> GetValues();
 ```
 
 #### Returns
 [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[T](DiGi.Geometry.Visual.Core.Classes.md#DiGi.Geometry.Visual.Core.Classes.VisualCollection_T_.T 'DiGi\.Geometry\.Visual\.Core\.Classes\.VisualCollection\<T\>\.T')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')  
-An enumerable collection of visual elements, or `null` if the internal storage is unavailable\.
+A live view of the visual elements currently stored in the collection\.
+
+### Remarks
+Returns a live view over the internal storage rather than a defensive copy; the values are
+observed as they are at the moment the returned enumerable is enumerated\.
 
 <a name='DiGi.Geometry.Visual.Core.Classes.VisualCollection_T_.Remove(DiGi.Core.Classes.GuidReference)'></a>
 

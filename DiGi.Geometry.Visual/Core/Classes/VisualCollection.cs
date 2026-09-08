@@ -2,7 +2,6 @@
 using DiGi.Geometry.Visual.Core.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 
@@ -143,10 +142,14 @@ namespace DiGi.Geometry.Visual.Core.Classes
         /// <summary>
         /// Returns an enumerator that iterates through the collection of visual elements.
         /// </summary>
+        /// <remarks>
+        /// The enumerator reflects the live contents of the collection; modifying the collection while
+        /// enumerating invalidates the enumerator and throws a <see cref="System.InvalidOperationException"/>.
+        /// </remarks>
         /// <returns>An enumerator for the collection.</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            return GetValues()?.GetEnumerator() ?? Enumerable.Empty<T>().GetEnumerator();
+            return dictionary.Values.GetEnumerator();
         }
 
         /// <summary>
@@ -161,10 +164,14 @@ namespace DiGi.Geometry.Visual.Core.Classes
         /// <summary>
         /// Retrieves all visual elements currently stored in the collection.
         /// </summary>
-        /// <returns>An enumerable collection of visual elements, or <c>null</c> if the internal storage is unavailable.</returns>
-        public IEnumerable<T>? GetValues()
+        /// <remarks>
+        /// Returns a live view over the internal storage rather than a defensive copy; the values are
+        /// observed as they are at the moment the returned enumerable is enumerated.
+        /// </remarks>
+        /// <returns>A live view of the visual elements currently stored in the collection.</returns>
+        public IEnumerable<T> GetValues()
         {
-            return dictionary == null ? null : new List<T>(dictionary.Values);
+            return dictionary.Values;
         }
 
         /// <summary>
